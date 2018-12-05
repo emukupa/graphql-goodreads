@@ -5,7 +5,10 @@ const graphqlHTTP = require('express-graphql')
 const app = express()
 app.use(morgan('dev'))
 
+const schema = require('./schema');
+
 app.use('/graphql', graphqlHTTP({
+  schema,
   graphiql: true
 }))
 
